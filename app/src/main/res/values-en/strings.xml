@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Geonotes</string>
+    <string name="verfuegbare_provider">Available Providers:</string>
+    <string name="lokalisierung_starten">START LOCALIZATION</string>
+    <string name="lokalisierung_gestartet">LOCALIZATION STARTED</string>
+    <string name="standort_anzeigen">Show location</string>
+    <string name="geodaten_empfangen">Received Geodata</string>
+    <string name="aktuelles_projekt_prefix">Current Project:\u0020</string>
+    <string name="thema">Topic</string>
+    <string name="notiz">Note</string>
+    <string name="notiz_speichern">Save Note</string>
+    <string name="vorherige_notiz">Previous Note</string>
+    <string name="naechste_notiz">Next Note</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_item_no_movement">Standstill (60 sec/0 m)</string>
+    <string name="title_item_foot">On Foot (9 sec/10 m)</string>
+    <string name="title_item_bicycle">Bicycle (4 sec/25 m)</string>
+    <string name="title_item_car">Car (4 sec/50 m)</string>
+    <string name="title_item_car_fast">Car Far (4 sec/100 m)</string>
+    <string name="title_alert_dialog_notiz_bearbeiten">Continue editing note?</string>
+    <string name="button_negative">No</string>
+    <string name="button_positive">Yes</string>
+    <string name="button_uebernehmen">Apply</string>
+    <string name="button_abbrechen">Cancel</string>
+    <string name="title_projektbeschreibung">Enter/Change Project Description</string>
+    <string name="title_projekt_auswaehlen">Choose Project</string>
+    <string name="toast_notiz_wurde_nicht_gespeichert">Note was not saved!</string>
+    <string name="aenderungen_speichern">Save changes?</string>
+    <string name="aenderungen_gespeichert">Changes saved</string>
+
+
+    <string name="toast_notiz_geloescht">Note deleted</string>
+    <string name="toast_notiz_und_projekt_geloescht">Note and Project deleted</string>
+    <string name="projekt_loeschen">Delete Project</string>
+    <string name="ok">Ok</string>
+    <string name="alert_message_letzte_notiz_loescht_das_projekt">
+        Deleting the last note deletes the Project! Continue?</string>
+
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoteMapActivity">
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+    <ImageButton
+        android:id="@+id/button_previous_notiz"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical|start"
+        android:alpha="0.75"
+        android:background="@drawable/rounded_button_with_ripple"
+        android:src="@android:drawable/ic_media_previous" />
+    <ImageButton
+        android:id="@+id/button_next_notiz"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical|end"
+        android:alpha="0.75"
+        android:background="@drawable/rounded_button_with_ripple"
+        android:src="@android:drawable/ic_media_next" />
+</FrameLayout>

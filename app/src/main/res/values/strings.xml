@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Geonotes</string>
+    <string name="verfuegbare_provider">Verfügbare Provider:</string>
+    <string name="lokalisierung_starten">LOKALISIERUNG STARTEN</string>
+    <string name="lokalisierung_gestartet">LOKALISIERUNG GESTARTET</string>
+    <string name="standort_anzeigen">Standort anzeigen</string>
+    <string name="geodaten_empfangen">Geodaten empfangen</string>
+    <string name="aktuelles_projekt_prefix">Aktuelles Projekt:\u0020</string>
+    <string name="thema">Thema</string>
+    <string name="notiz">Notiz</string>
+    <string name="notiz_speichern">Notiz speichern</string>
+    <string name="vorherige_notiz">Vorherige Notiz</string>
+    <string name="naechste_notiz">Nächste Notiz</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="title_item_no_movement">Stillstand (60 sec/0 m)</string>
+    <string name="title_item_foot">Zu Fuß (9 sec/10 m)</string>
+    <string name="title_item_bicycle">Rad (4 sec/25 m)</string>
+    <string name="title_item_car">PKW (4 sec/50 m)</string>
+    <string name="title_item_car_fast">PKW fern (4 sec/100 m)</string>
+    <string name="title_alert_dialog_notiz_bearbeiten">Notiz weiter bearbeiten?</string>
+    <string name="button_negative">Nein</string>
+    <string name="button_positive">Ja</string>
+    <string name="button_uebernehmen">Übernehmen</string>
+    <string name="button_abbrechen">Abbrechen</string>
+    <string name="title_projektbeschreibung">Projektbeschreibung eingeben/ändern</string>
+    <string name="title_projekt_auswaehlen">Projekt auswählen</string>
+    <string name="toast_notiz_wurde_nicht_gespeichert">Notiz wurde noch nicht gespeichert</string>
+    <string name="aenderungen_speichern">Änderungen speichern?</string>
+    <string name="aenderungen_gespeichert">Änderungen gespeichert</string>
+
+
+    <string name="toast_notiz_geloescht">Notiz gelöscht</string>
+    <string name="toast_notiz_und_projekt_geloescht">Notiz und Projekt gelöscht</string>
+    <string name="projekt_loeschen">Projekt Löschen</string>
+    <string name="ok">Ok</string>
+    <string name="alert_message_letzte_notiz_loescht_das_projekt">
+        Löschen der letzten Notiz löscht das Projekt. Fortfahren?</string>
+
+</resources>

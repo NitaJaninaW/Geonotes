@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GatherActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/verfuegbare_provider" />
+
+    <Spinner
+        android:id="@+id/spinner_provider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ToggleButton
+        android:id="@+id/togglebutton_lokalisierung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onToggleButtonLokalisierenClick"
+        android:textOff="@string/lokalisierung_starten"
+        android:textOn="@string/lokalisierung_gestartet" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="#000" />
+
+    <TextView
+        android:id="@+id/textview_aktuelles_projekt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aktuelles_projekt_prefix" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/thema" />
+
+    <EditText
+        android:id="@+id/edittext_thema"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/notiz" />
+
+    <EditText
+        android:id="@+id/edittext_notiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_previous"
+            android:src="@android:drawable/ic_media_previous"
+            android:onClick="onButtonVorherigeNotizClick"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_next"
+            android:src="@android:drawable/ic_media_next"
+            android:onClick="onButtonNaechsteNotizClick"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vorherige_notiz"
+            app:layout_constraintLeft_toRightOf= "@+id/button_previous"
+            app:layout_constraintTop_toTopOf= "@+id/button_previous"
+            app:layout_constraintBottom_toBottomOf= "@+id/button_previous"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/naechste_notiz"
+            app:layout_constraintRight_toLeftOf= "@+id/button_next"
+            app:layout_constraintTop_toTopOf= "@+id/button_next"
+            app:layout_constraintBottom_toBottomOf= "@+id/button_next"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonNotizSpeichernClick"
+        android:text="@string/notiz_speichern" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onButtonStandortAnzeigenClick"
+        android:text="@string/standort_anzeigen" />
+
+
+</LinearLayout>
