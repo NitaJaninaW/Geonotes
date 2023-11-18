@@ -44,5 +44,5 @@ fun main() {
 
 // Test der Funktion
 fun main() {
-    println(decimalToSexagesimal(52.514365, 13.350140))
+    println(decimalToSexagesimal(52.514365, 13.350140)) Here some changes
 }*/
