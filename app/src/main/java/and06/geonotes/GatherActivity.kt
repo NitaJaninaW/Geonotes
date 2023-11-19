@@ -31,6 +31,7 @@ class GatherActivity : AppCompatActivity() {
         val NOTIZEN = "notizen"
         val INDEX_AKTUELLE_NOTIZ = "index_aktuelle_notiz"
         val AKTUELLE_NOTIZ = "aktuelle notiz"
+        val AKTUELLES_PROJEKT = "aktuelles_projekt"
         val PREFERENCES = "preferences"
         val ID_ZULETZT_GEOEFFNETES_PROJEKT =
             "id_zuletzt_geoeffnetes_projekt"
@@ -56,6 +57,13 @@ class GatherActivity : AppCompatActivity() {
         textview.append(aktuellesProjekt.getDescription())
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        if (savedInstanceState != null) {
+            aktuellesProjekt = savedInstanceState.getParcelable(AKTUELLES_PROJEKT)!!
+            val notiz: Notiz? = savedInstanceState.getParcelable(AKTUELLE_NOTIZ)
+            if (notiz != null) aktuelleNotiz = notiz!!
+            return
+        }
 
         //Aus Shared Preferences letzte projekt id lesen
         val projektId = getSharedPreferences(
@@ -245,12 +253,6 @@ class GatherActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        locationManager.removeUpdates(locationListener)
-        getSharedPreferences(
-            PREFERENCES,
-            Context.MODE_PRIVATE
-        ).edit().putLong(ID_ZULETZT_GEOEFFNETES_PROJEKT, aktuellesProjekt.id).apply()
     }
 
     override fun onResume() {
@@ -276,10 +278,10 @@ class GatherActivity : AppCompatActivity() {
         super.onDestroy()
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         locationManager.removeUpdates(locationListener)
-        /*getSharedPreferences(
+        getSharedPreferences(
             PREFERENCES,
             Context.MODE_PRIVATE
-        ).edit().putLong(ID_ZULETZT_GEOEFFNETES_PROJEKT, aktuellesProjekt.id).apply()*/
+        ).edit().putLong(ID_ZULETZT_GEOEFFNETES_PROJEKT, aktuellesProjekt.id).apply()
     }
 
     inner class SpinnerProviderItemSelectedListener :
@@ -395,7 +397,7 @@ class GatherActivity : AppCompatActivity() {
                     //Toast nach speichern anzeigen
                     Toast.makeText(
                         this@GatherActivity,
-                        "R.string.notiz_gespeichert", Toast.LENGTH_SHORT
+                        R.string.toast_notiz_gespeichert, Toast.LENGTH_SHORT
                     ).show()
                 })
             setPositiveButton(
@@ -693,4 +695,12 @@ class GatherActivity : AppCompatActivity() {
             show()
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(AKTUELLES_PROJEKT, aktuellesProjekt)
+        if (aktuelleNotiz != null)
+            outState.putParcelable(AKTUELLE_NOTIZ, aktuelleNotiz)
+    }
+
 }

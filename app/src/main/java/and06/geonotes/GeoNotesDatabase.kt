@@ -6,11 +6,12 @@ import java.text.DateFormat
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "projekte")
 data class Projekt(
     @PrimaryKey val id: Long,
     var beschreibung: String?
-)
+) : Parcelable
 
 fun Projekt.getDescription(): String {
     val dateFormat =

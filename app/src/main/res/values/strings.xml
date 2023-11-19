@@ -30,6 +30,7 @@
 
 
     <string name="toast_notiz_geloescht">Notiz gelöscht</string>
+    <string name="toast_notiz_gespeichert">Notiz gespeichert</string>
     <string name="toast_notiz_und_projekt_geloescht">Notiz und Projekt gelöscht</string>
     <string name="projekt_loeschen">Projekt Löschen</string>
     <string name="ok">Ok</string>

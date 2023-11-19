@@ -35,6 +35,8 @@
     <string name="ok">Ok</string>
     <string name="alert_message_letzte_notiz_loescht_das_projekt">
         Deleting the last note deletes the Project! Continue?</string>
+    <string name="toast_notiz_gespeichert">Note saved</string>
+
 
 
 </resources>
