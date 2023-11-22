@@ -16,6 +16,10 @@
         android:title="Projekt versenden"
         android:icon="@android:drawable/ic_menu_send"
         app:showAsAction="always"/>
+    <item android:id="@+id/menu_osm_oeffnen"
+        android:title="In Webview anzeigen"
+        android:icon="@android:drawable/ic_menu_directions"
+        app:showAsAction="always" />
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"

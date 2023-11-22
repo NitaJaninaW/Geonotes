@@ -139,7 +139,8 @@ class GatherActivity : AppCompatActivity() {
                 minTime = pair.first
                 minDistance = pair.second
                 Toast.makeText(
-                    this, "Neues GPS-Intervall \"$item\". Bitte Lokalisierung neu starten.",
+                    this, "Neues GPS-Intervall \"$item\"." +
+                            " Bitte Lokalisierung neu starten.",
                     Toast.LENGTH_LONG
                 ).show()
                 return true
@@ -159,6 +160,10 @@ class GatherActivity : AppCompatActivity() {
 
             R.id.menu_projekt_versenden -> {
                 projektVersenden()
+            }
+
+            R.id.menu_osm_oeffnen -> {
+                openWebView()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -709,6 +714,13 @@ class GatherActivity : AppCompatActivity() {
     }
 
     fun projektVersenden() {
+        if (aktuelleNotiz == null) {
+            Toast.makeText(
+                this,
+                "Notiz darf nicht leer sein!", Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
         if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             Toast.makeText(
                 this, "External Storage nicht verfügbar",
@@ -747,4 +759,35 @@ class GatherActivity : AppCompatActivity() {
         }
     }
 
+    fun openWebView() {
+        if (aktuelleNotiz == null) {
+            Toast.makeText(
+                this, "Bitte Notiz auswählen oder speichern",
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+        val database = GeoNotesDatabase.getInstance(this)
+        CoroutineScope(Dispatchers.Main).launch {
+            var notizen: List<Notiz>? = null
+            withContext(Dispatchers.IO) {
+                notizen = database.notizenDao().getNotizen(aktuellesProjekt.id)
+            }
+            notizen?.also {
+                val intent = Intent(
+                    this@GatherActivity,
+                    OsmWebViewActivity::class.java
+                )
+                intent.putParcelableArrayListExtra(
+                    NOTIZEN,
+                    ArrayList<Notiz>(it)
+                )
+                intent.putExtra(
+                    INDEX_AKTUELLE_NOTIZ,
+                    it.indexOf(aktuelleNotiz!!)
+                )
+                startActivity(intent)
+            }
+        }
+    }
 }
