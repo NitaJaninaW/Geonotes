@@ -12,6 +12,10 @@
         android:title="Projekt auswählen"
         android:icon="@android:drawable/ic_menu_set_as"
         app:showAsAction="always"/>
+    <item android:id="@+id/menu_projekt_versenden"
+        android:title="Projekt versenden"
+        android:icon="@android:drawable/ic_menu_send"
+        app:showAsAction="always"/>
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
