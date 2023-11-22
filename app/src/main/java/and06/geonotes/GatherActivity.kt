@@ -265,6 +265,14 @@ class GatherActivity : AppCompatActivity() {
         super.onPause()
     }
 
+    override fun onStop() {
+        super.onStop()
+        getSharedPreferences(
+            PREFERENCES,
+            Context.MODE_PRIVATE
+        ).edit().putLong(ID_ZULETZT_GEOEFFNETES_PROJEKT, aktuellesProjekt.id).apply()
+    }
+
     override fun onResume() {
         super.onResume()
         if (findViewById<ToggleButton>(R.id.togglebutton_lokalisierung).isChecked()) {
@@ -288,10 +296,6 @@ class GatherActivity : AppCompatActivity() {
         super.onDestroy()
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         locationManager.removeUpdates(locationListener)
-        getSharedPreferences(
-            PREFERENCES,
-            Context.MODE_PRIVATE
-        ).edit().putLong(ID_ZULETZT_GEOEFFNETES_PROJEKT, aktuellesProjekt.id).apply()
     }
 
     inner class SpinnerProviderItemSelectedListener :
