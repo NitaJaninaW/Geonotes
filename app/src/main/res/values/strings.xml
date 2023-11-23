@@ -21,7 +21,6 @@
     <string name="button_negative">Nein</string>
     <string name="button_positive">Ja</string>
     <string name="button_uebernehmen">Übernehmen</string>
-    <string name="button_abbrechen">Abbrechen</string>
     <string name="title_projektbeschreibung">Projektbeschreibung eingeben/ändern</string>
     <string name="title_projekt_auswaehlen">Projekt auswählen</string>
     <string name="toast_notiz_wurde_nicht_gespeichert">Notiz wurde noch nicht gespeichert</string>
@@ -33,7 +32,17 @@
     <string name="toast_notiz_gespeichert">Notiz gespeichert</string>
     <string name="toast_notiz_und_projekt_geloescht">Notiz und Projekt gelöscht</string>
     <string name="projekt_loeschen">Projekt Löschen</string>
-    <string name="ok">Ok</string>
+
+
+    <string name="button_ok">Ok</string>
+    <string name="button_abbrechen">Abbrechen</string>
+    <string name="title_anzeige_des_standorts">Anzeige des Standorts</string>
+
+    <string-array name="map_anzeige">
+        <item>NoteMapActivity</item>
+        <item>WebViewActivity</item>
+    </string-array>
+
     <string name="alert_message_letzte_notiz_loescht_das_projekt">
         Löschen der letzten Notiz löscht das Projekt. Fortfahren?</string>
 

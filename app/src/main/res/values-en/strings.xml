@@ -32,10 +32,12 @@
     <string name="toast_notiz_geloescht">Note deleted</string>
     <string name="toast_notiz_und_projekt_geloescht">Note and Project deleted</string>
     <string name="projekt_loeschen">Delete Project</string>
-    <string name="ok">Ok</string>
+    <string name="button_ok">Ok</string>
     <string name="alert_message_letzte_notiz_loescht_das_projekt">
         Deleting the last note deletes the Project! Continue?</string>
     <string name="toast_notiz_gespeichert">Note saved</string>
+    <string name="title_anzeige_des_standorts">Location View</string>
+
 
 
 

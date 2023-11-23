@@ -256,7 +256,26 @@ class GatherActivity : AppCompatActivity() {
                 )
                 intent.putParcelableArrayListExtra(NOTIZEN, ArrayList<Notiz>(notizen!!))
                 intent.putExtra(INDEX_AKTUELLE_NOTIZ, notizen?.indexOf(aktuelleNotiz!!))
-                startActivityForResult(intent, 0)
+
+                // Erstellen Sie einen AlertDialog für die Auswahl der Activity
+                with(AlertDialog.Builder(this@GatherActivity)) {
+                    setTitle(R.string.title_anzeige_des_standorts)
+                    setSingleChoiceItems(
+                        resources.getStringArray(R.array.map_anzeige),
+                        0
+                    ) { _, which ->
+                        if (which == 1) {
+                            intent.setClass(this@GatherActivity, OsmWebViewActivity::class.java)
+                        }
+                    }
+                    setPositiveButton(R.string.button_ok) { _, _ ->
+                        startActivityForResult(intent, 0)
+                    }
+                    setNegativeButton(R.string.button_abbrechen, null)
+                    show()
+
+                    //startActivityForResult(intent, 0)
+                }
             }
         }
     }
@@ -286,7 +305,8 @@ class GatherActivity : AppCompatActivity() {
                 )
             } catch (ex: SecurityException) {
                 Log.e(
-                    javaClass.simpleName, "Erfoderliche Berechtigung$ex.toString() nicht erteilt"
+                    javaClass.simpleName,
+                    "Erfoderliche Berechtigung$ex.toString() nicht erteilt"
                 )
             }
         }
@@ -305,7 +325,8 @@ class GatherActivity : AppCompatActivity() {
             View?, position: Int, id: Long
         ) {
             if (findViewById<ToggleButton>(R.id.togglebutton_lokalisierung).isChecked()) {
-                val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                val locationManager =
+                    getSystemService(Context.LOCATION_SERVICE) as LocationManager
                 locationManager.removeUpdates(locationListener)
                 val provider = (view as TextView).text.toString()
                 try {
@@ -356,7 +377,10 @@ class GatherActivity : AppCompatActivity() {
             lastLocation =
                 locationManager.getLastKnownLocation(provider)
         } catch (ex: SecurityException) {
-            Log.e(javaClass.simpleName, "Erforderliche Berechtigung $ex.toString() nicht erteilt")
+            Log.e(
+                javaClass.simpleName,
+                "Erforderliche Berechtigung $ex.toString() nicht erteilt"
+            )
         }
         if (lastLocation == null) {
             Toast.makeText(
@@ -539,7 +563,7 @@ class GatherActivity : AppCompatActivity() {
                 AlertDialog.Builder(this@GatherActivity).apply {
                     setTitle(R.string.projekt_loeschen)
                     setMessage(R.string.alert_message_letzte_notiz_loescht_das_projekt)
-                    setPositiveButton(R.string.ok) { dialog, id ->
+                    setPositiveButton(R.string.button_ok) { dialog, id ->
                         CoroutineScope(Dispatchers.Main).launch {
                             withContext(Dispatchers.IO) {
                                 database.notizenDao().deleteNotiz(aktuelleNotiz?.id!!)
@@ -683,7 +707,10 @@ class GatherActivity : AppCompatActivity() {
         }
     }
 
-    fun verarbeiteNichtGespeicherteAenderungen(textViewThema: TextView, textViewNotiz: TextView) {
+    fun verarbeiteNichtGespeicherteAenderungen(
+        textViewThema: TextView,
+        textViewNotiz: TextView
+    ) {
         with(AlertDialog.Builder(this)) {
             setTitle(R.string.aenderungen_speichern)
             setNegativeButton(
@@ -703,7 +730,9 @@ class GatherActivity : AppCompatActivity() {
                     val database = GeoNotesDatabase.getInstance(this@GatherActivity)
                     GlobalScope.launch { database.notizenDao().insertNotiz(aktuelleNotiz!!) }
                     Toast.makeText(
-                        this@GatherActivity, R.string.aenderungen_gespeichert, Toast.LENGTH_SHORT
+                        this@GatherActivity,
+                        R.string.aenderungen_gespeichert,
+                        Toast.LENGTH_SHORT
                     ).show()
                 })
             show()
