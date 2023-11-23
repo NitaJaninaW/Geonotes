@@ -161,10 +161,6 @@ class GatherActivity : AppCompatActivity() {
             R.id.menu_projekt_versenden -> {
                 projektVersenden()
             }
-
-            R.id.menu_osm_oeffnen -> {
-                openWebView()
-            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -237,7 +233,7 @@ class GatherActivity : AppCompatActivity() {
     fun onButtonStandortAnzeigenClick(view: View?) {
         if (aktuelleNotiz == null) {
             Toast.makeText(
-                this, "Bitte Notiz auswählen oder speichern",
+                this, R.string.toast_notiz_auswaehlen_oder_speichern,
                 Toast.LENGTH_LONG
             ).show()
             return
@@ -251,21 +247,24 @@ class GatherActivity : AppCompatActivity() {
             }
             if (!notizen.isNullOrEmpty()) {
                 val intent = Intent(
-                    this@GatherActivity,
-                    NoteMapActivity::class.java
+                    this@GatherActivity, NoteMapActivity::class.java
                 )
                 intent.putParcelableArrayListExtra(NOTIZEN, ArrayList<Notiz>(notizen!!))
                 intent.putExtra(INDEX_AKTUELLE_NOTIZ, notizen?.indexOf(aktuelleNotiz!!))
 
-                // Erstellen Sie einen AlertDialog für die Auswahl der Activity
+                //AlertDialog für die Auswahl der Activity
                 with(AlertDialog.Builder(this@GatherActivity)) {
                     setTitle(R.string.title_anzeige_des_standorts)
                     setSingleChoiceItems(
                         resources.getStringArray(R.array.map_anzeige),
                         0
-                    ) { _, which ->
+                    )
+                    { _, which ->
                         if (which == 1) {
-                            intent.setClass(this@GatherActivity, OsmWebViewActivity::class.java)
+                            intent.setClass(
+                                this@GatherActivity,
+                                OsmWebViewActivity::class.java
+                            )
                         }
                     }
                     setPositiveButton(R.string.button_ok) { _, _ ->
@@ -273,8 +272,6 @@ class GatherActivity : AppCompatActivity() {
                     }
                     setNegativeButton(R.string.button_abbrechen, null)
                     show()
-
-                    //startActivityForResult(intent, 0)
                 }
             }
         }

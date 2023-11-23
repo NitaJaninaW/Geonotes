@@ -37,6 +37,8 @@
         Deleting the last note deletes the Project! Continue?</string>
     <string name="toast_notiz_gespeichert">Note saved</string>
     <string name="title_anzeige_des_standorts">Location View</string>
+    <string name="toast_notiz_auswaehlen_oder_speichern">Choose or save note</string>
+
 
 
 

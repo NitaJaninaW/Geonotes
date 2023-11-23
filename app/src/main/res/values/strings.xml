@@ -24,9 +24,9 @@
     <string name="title_projektbeschreibung">Projektbeschreibung eingeben/ändern</string>
     <string name="title_projekt_auswaehlen">Projekt auswählen</string>
     <string name="toast_notiz_wurde_nicht_gespeichert">Notiz wurde noch nicht gespeichert</string>
+    <string name="toast_notiz_auswaehlen_oder_speichern">Notiz auswählen oder speichern</string>
     <string name="aenderungen_speichern">Änderungen speichern?</string>
     <string name="aenderungen_gespeichert">Änderungen gespeichert</string>
-
 
     <string name="toast_notiz_geloescht">Notiz gelöscht</string>
     <string name="toast_notiz_gespeichert">Notiz gespeichert</string>
