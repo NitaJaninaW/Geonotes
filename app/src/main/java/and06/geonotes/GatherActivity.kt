@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -160,6 +161,10 @@ class GatherActivity : AppCompatActivity() {
 
             R.id.menu_projekt_versenden -> {
                 projektVersenden()
+            }
+
+            R.id.menu_google_maps -> {
+                openGoogleMap()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -820,4 +825,32 @@ class GatherActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun openGoogleMap() {
+        if (aktuelleNotiz == null) {
+            Toast.makeText(
+                this, "Bitte Notiz auswählen oder speichern",
+                Toast.LENGTH_LONG
+            ).show()
+            return
+        }
+
+         // Ersetzen Sie dies durch die tatsächliche Geoposition der Notiz
+        val gmmIntentUri = Uri.parse(
+            "geo:${aktuelleNotiz!!.latitude}," +
+                "${aktuelleNotiz!!.longitude}" +
+                    "?q=${aktuelleNotiz!!.latitude}," +
+                    "${aktuelleNotiz!!.longitude}(Marker)")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+        if (mapIntent.resolveActivity(packageManager) != null) {
+            startActivity(mapIntent)
+        } else {
+            Toast.makeText(
+                this, "Google Maps ist nicht installiert",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
 }
