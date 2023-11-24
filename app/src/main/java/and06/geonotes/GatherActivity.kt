@@ -829,28 +829,24 @@ class GatherActivity : AppCompatActivity() {
     fun openGoogleMap() {
         if (aktuelleNotiz == null) {
             Toast.makeText(
-                this, "Bitte Notiz auswählen oder speichern",
+                this, R.string.toast_notiz_auswaehlen_oder_speichern,
                 Toast.LENGTH_LONG
             ).show()
             return
         }
-
-         // Ersetzen Sie dies durch die tatsächliche Geoposition der Notiz
         val gmmIntentUri = Uri.parse(
-            "geo:${aktuelleNotiz!!.latitude}," +
-                "${aktuelleNotiz!!.longitude}" +
+            "geo:0,0" +
                     "?q=${aktuelleNotiz!!.latitude}," +
-                    "${aktuelleNotiz!!.longitude}(Marker)")
+                    "${aktuelleNotiz!!.longitude}" +
+                    "(${aktuelleNotiz!!.thema.uppercase()}+${aktuelleNotiz!!.notiz})"
+        )
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-        mapIntent.setPackage("com.google.android.apps.maps")
+        mapIntent.setPackage(getString(R.string.google_maps_package_name))
         if (mapIntent.resolveActivity(packageManager) != null) {
             startActivity(mapIntent)
         } else {
-            Toast.makeText(
-                this, "Google Maps ist nicht installiert",
-                Toast.LENGTH_LONG
-            ).show()
+            Toast.makeText(this, R.string.toast_keine_geeignete_anwendung_installiert,
+                Toast.LENGTH_LONG).show()
         }
     }
-
 }

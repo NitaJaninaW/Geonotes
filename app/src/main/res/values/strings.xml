@@ -24,7 +24,6 @@
     <string name="title_projektbeschreibung">Projektbeschreibung eingeben/ändern</string>
     <string name="title_projekt_auswaehlen">Projekt auswählen</string>
     <string name="toast_notiz_wurde_nicht_gespeichert">Notiz wurde noch nicht gespeichert</string>
-    <string name="toast_notiz_auswaehlen_oder_speichern">Notiz auswählen oder speichern</string>
     <string name="aenderungen_speichern">Änderungen speichern?</string>
     <string name="aenderungen_gespeichert">Änderungen gespeichert</string>
 
@@ -45,5 +44,13 @@
 
     <string name="alert_message_letzte_notiz_loescht_das_projekt">
         Löschen der letzten Notiz löscht das Projekt. Fortfahren?</string>
+
+    <string name="toast_notiz_auswaehlen_oder_speichern">
+        Notiz auswählen oder speichern</string>
+    <string name="google_maps_package_name">
+        com.google.android.apps.maps</string>
+    <string name="toast_keine_geeignete_anwendung_installiert">
+        Keine geeignete Anwendung installiert</string>
+
 
 </resources>

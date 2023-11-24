@@ -38,6 +38,9 @@
     <string name="toast_notiz_gespeichert">Note saved</string>
     <string name="title_anzeige_des_standorts">Location View</string>
     <string name="toast_notiz_auswaehlen_oder_speichern">Choose or save note</string>
+    <string name="toast_keine_geeignete_anwendung_installiert">Keine geeignete Anwendung installiert</string>
+    <string name="google_maps_package_name">com.google.android.apps.maps</string>
+
 
 
 
